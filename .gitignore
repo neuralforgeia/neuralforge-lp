@@ -1,0 +1,13 @@
+# Source brand files (kept locally, not needed in deploy)
+Neural Forge_IDV_EPS/
+Neural Forge_IDV_JPEG/
+Neural Forge_Fontes/
+
+# System
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+*.code-workspace

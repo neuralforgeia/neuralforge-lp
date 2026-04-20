@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serviços — Neural Forge</title>
+  <meta name="description" content="Conheça todos os serviços da Neural Forge: atendimento com IA, automação de processos, aplicativos sob medida, landing pages e e-commerce." />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    /* ── SERVICE CARDS ── */
+    .srv-section { padding: 80px 0; border-bottom: 1px solid var(--border); }
+    .srv-section:last-of-type { border-bottom: none; }
+    .srv-section:nth-child(even) { background: var(--bg-card); }
+    .srv-section:nth-child(odd)  { background: var(--bg); }
+
+    .srv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .srv-grid.reverse { direction: rtl; }
+    .srv-grid.reverse > * { direction: ltr; }
+
+    .srv-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--orange-dim); border: 1px solid var(--orange-border); padding: 4px 12px; border-radius: 100px; font-size: 11px; font-weight: 500; color: var(--orange); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 16px; }
+    .srv-icon-lg { width: 64px; height: 64px; border-radius: 16px; background: var(--orange-dim); display: flex; align-items: center; justify-content: center; color: var(--orange); margin-bottom: 24px; border: 1px solid var(--orange-border); }
+    .srv-title { font-size: clamp(24px, 3vw, 34px); font-weight: 700; letter-spacing: -.02em; line-height: 1.2; margin-bottom: 16px; }
+    .srv-desc { font-size: 16px; color: var(--text-2); font-weight: 300; line-height: 1.8; margin-bottom: 28px; }
+
+    .feat-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .feat-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--text-2); line-height: 1.5; }
+    .feat-dot { width: 18px; height: 18px; border-radius: 50%; background: var(--orange-dim); border: 1px solid var(--orange-border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .feat-dot svg { color: var(--orange); }
+
+    .for-whom { background: var(--bg-raised); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 16px 18px; margin-bottom: 28px; }
+    .for-whom-lbl { font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: .12em; font-weight: 500; margin-bottom: 6px; }
+    .for-whom p { font-size: 14px; color: var(--text-2); font-weight: 300; line-height: 1.6; }
+
+    .srv-visual { position: relative; }
+    .srv-card-vis { background: var(--bg-raised); border: 1px solid var(--border); border-radius: var(--r); padding: 32px; position: relative; overflow: hidden; }
+    .srv-card-vis::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background: linear-gradient(90deg, var(--orange), rgba(240,76,35,.3), transparent); }
+    .srv-card-vis::after  { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(240,76,35,.04), transparent 65%); pointer-events:none; }
+
+    .metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .metric { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; text-align: center; }
+    .metric-val { font-size: 32px; font-weight: 700; color: var(--orange); line-height: 1; }
+    .metric-lbl { font-size: 12px; color: var(--text-3); margin-top: 4px; font-weight: 300; }
+
+    .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .chip { background: var(--bg-card); border: 1px solid var(--border); border-radius: 100px; padding: 5px 12px; font-size: 12px; color: var(--text-2); }
+
+    @media(max-width:900px) { .srv-grid, .srv-grid.reverse { grid-template-columns: 1fr; direction: ltr; gap: 44px; } }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><img src="assets/logos/logo-dark.png" alt="Neural Forge" height="36"></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#sobre">Sobre</a></li>
+        <li><a href="servicos.html" class="active">Serviços</a></li>
+        <li><a href="precos.html">Preços</a></li>
+        <li><a href="index.html#contato" class="nav-cta">Fale Conosco</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+  <div class="wrap">
+    <a href="index.html" class="back-link fi">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Voltar ao início
+    </a>
+    <div class="sec-label fi d1">O Que Fazemos</div>
+    <h1 class="fi d2">Nossos <span class="grad">Serviços</span></h1>
+    <p class="fi d3">Cada solução foi desenvolvida para resolver um problema real. Conheça em detalhes o que podemos fazer pelo seu negócio.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     1 · ATENDIMENTO COM IA
+══════════════════════════════════ -->
+<section class="srv-section" id="ia">
+  <div class="wrap">
+    <div class="srv-grid">
+      <div class="fi">
+        <div class="srv-tag"><span style="width:6px;height:6px;background:var(--orange);border-radius:50%;flex-shrink:0"></span> Carro-chefe</div>
+        <div class="srv-icon-lg">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h8M8 14h5"/></svg>
+        </div>
+        <h2 class="srv-title">Atendimento Automatizado com IA</h2>
+        <p class="srv-desc">Implante um atendente inteligente no seu WhatsApp que funciona 24h por dia, 7 dias por semana — sem intervenção humana para atendimentos de rotina. A IA faz triagem, responde dúvidas, coleta dados e encaminha os casos certos para o time humano.</p>
+        <ul class="feat-list">
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Triagem automática de mensagens e intenções do cliente</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Respostas personalizadas com base no seu negócio</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Fluxos de conversa configuráveis para agendamento, vendas e suporte</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Transferência inteligente para atendente humano quando necessário</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Relatórios e histórico completo de atendimentos</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Integração com CRMs e sistemas existentes</li>
+        </ul>
+        <div class="for-whom">
+          <div class="for-whom-lbl">Ideal para</div>
+          <p>Clínicas, consultórios veterinários, salões, escritórios, lojas e qualquer negócio com alto volume de mensagens diárias no WhatsApp.</p>
+        </div>
+        <a href="https://wa.me/SEUNUMERO?text=Olá%2C%20tenho%20interesse%20em%20Atendimento%20com%20IA" class="btn btn-primary">Solicitar Orçamento →</a>
+      </div>
+      <div class="fi d2 srv-visual">
+        <div class="srv-card-vis">
+          <div style="font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:500;">Impacto Esperado</div>
+          <div class="metric-grid">
+            <div class="metric"><div class="metric-val">24h</div><div class="metric-lbl">Atendimento contínuo</div></div>
+            <div class="metric"><div class="metric-val">80%</div><div class="metric-lbl">Redução em atend. manuais</div></div>
+            <div class="metric"><div class="metric-val">&lt;10s</div><div class="metric-lbl">Tempo de 1ª resposta</div></div>
+            <div class="metric"><div class="metric-val">∞</div><div class="metric-lbl">Atendimentos simultâneos</div></div>
+          </div>
+          <div class="chip-row">
+            <span class="chip">WhatsApp Business API</span>
+            <span class="chip">Integração CRM</span>
+            <span class="chip">IA personalizada</span>
+            <span class="chip">Relatórios</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     2 · GESTÃO DE CONVERSAS (KANBAN)
+══════════════════════════════════ -->
+<section class="srv-section" id="kanban">
+  <div class="wrap">
+    <div class="srv-grid reverse">
+      <div class="fi">
+        <div class="srv-tag"><span style="width:6px;height:6px;background:var(--orange);border-radius:50%;flex-shrink:0"></span> Em Uso</div>
+        <div class="srv-icon-lg">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="6" height="6" rx="1"/><rect x="9" y="3" width="6" height="6" rx="1"/><rect x="16" y="3" width="6" height="6" rx="1"/><rect x="2" y="10" width="6" height="11" rx="1"/><rect x="9" y="10" width="6" height="5" rx="1"/><rect x="16" y="10" width="6" height="11" rx="1"/></svg>
+        </div>
+        <h2 class="srv-title">Gestão de Conversas via WhatsApp (Kanban)</h2>
+        <p class="srv-desc">Uma plataforma web que centraliza todos os atendimentos do WhatsApp em uma interface visual estilo Kanban. Cada conversa se torna um card que pode ser movido entre etapas — como "Novo contato", "Em atendimento", "Aguardando retorno" e "Concluído".</p>
+        <ul class="feat-list">
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Acesso multiusuário — cada agente com login próprio</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Hierarquia de acessos: supervisores, atendentes e administradores</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Visualização Kanban com arraste de conversas entre colunas</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Funciona como um WhatsApp Web paralelo, sem alterar o app original</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Integração com CRMs (HubSpot, RD Station e outros)</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Pode incluir atendimento automatizado com IA no mesmo fluxo</li>
+        </ul>
+        <div class="for-whom">
+          <div class="for-whom-lbl">Ideal para</div>
+          <p>Equipes comerciais, clínicas com recepcionistas, imobiliárias, agências e empresas que gerenciam muitos atendimentos pelo WhatsApp com mais de uma pessoa.</p>
+        </div>
+        <a href="https://wa.me/SEUNUMERO?text=Olá%2C%20tenho%20interesse%20no%20Kanban%20de%20Conversas" class="btn btn-primary">Solicitar Orçamento →</a>
+      </div>
+      <div class="fi d2 srv-visual">
+        <div class="srv-card-vis">
+          <div style="font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:500;">Funcionalidades</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-size:14px;color:var(--text-2);">📥 <strong style="color:var(--text)">Novos contatos</strong> — triagem automática</div>
+            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-size:14px;color:var(--text-2);">💬 <strong style="color:var(--text)">Em atendimento</strong> — conversas ativas</div>
+            <div style="background:var(--bg-card);border:1px solid var(--orange-border);border-radius:8px;padding:14px 16px;font-size:14px;color:var(--text-2);">⏳ <strong style="color:var(--text)">Aguardando</strong> — follow-up pendente</div>
+            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-size:14px;color:var(--text-2);">✅ <strong style="color:var(--text)">Concluído</strong> — histórico completo</div>
+          </div>
+          <div class="chip-row">
+            <span class="chip">Multi-agente</span><span class="chip">Hierarquia</span>
+            <span class="chip">CRM</span><span class="chip">IA integrada</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     3 · AUTOMAÇÃO DE PROCESSOS
+══════════════════════════════════ -->
+<section class="srv-section" id="automacao">
+  <div class="wrap">
+    <div class="srv-grid">
+      <div class="fi">
+        <div class="srv-tag"><span style="width:6px;height:6px;background:var(--orange);border-radius:50%;flex-shrink:0"></span> Popular</div>
+        <div class="srv-icon-lg">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+        </div>
+        <h2 class="srv-title">Automação de Processos</h2>
+        <p class="srv-desc">Mapeamos os processos repetitivos do seu negócio e criamos fluxos automatizados que funcionam 24h por dia, sem erro humano e sem custo de mão de obra adicional. Se você faz a mesma coisa todo dia, dá para automatizar.</p>
+        <ul class="feat-list">
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Onboarding automatizado de clientes</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Geração automática de contratos e documentos</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Notificações automáticas por e-mail ou WhatsApp</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Preenchimento automático de planilhas e formulários</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Lembretes de tarefas e alertas de prazo</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Integrações entre sistemas (CRM, ERP, planilhas, APIs)</li>
+        </ul>
+        <div class="for-whom">
+          <div class="for-whom-lbl">Ideal para</div>
+          <p>Qualquer negócio com tarefas manuais e repetitivas: escritórios, escolas, clínicas, e-commerce, imobiliárias, agências e prestadores de serviço.</p>
+        </div>
+        <a href="https://wa.me/SEUNUMERO?text=Olá%2C%20quero%20automatizar%20processos%20no%20meu%20negócio" class="btn btn-primary">Solicitar Orçamento →</a>
+      </div>
+      <div class="fi d2 srv-visual">
+        <div class="srv-card-vis">
+          <div style="font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:500;">Exemplos Reais</div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--text-2);"><span style="color:var(--orange);font-size:18px;flex-shrink:0;margin-top:-2px">→</span><span><strong style="color:var(--text)">Cliente preenche form</strong> → contrato gerado automaticamente e enviado por e-mail</span></div>
+            <div style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--text-2);"><span style="color:var(--orange);font-size:18px;flex-shrink:0;margin-top:-2px">→</span><span><strong style="color:var(--text)">Pagamento confirmado</strong> → pasta criada, acesso liberado, boas-vindas enviadas</span></div>
+            <div style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--text-2);"><span style="color:var(--orange);font-size:18px;flex-shrink:0;margin-top:-2px">→</span><span><strong style="color:var(--text)">Consulta agendada</strong> → lembrete automático 24h antes pelo WhatsApp</span></div>
+            <div style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--text-2);"><span style="color:var(--orange);font-size:18px;flex-shrink:0;margin-top:-2px">→</span><span><strong style="color:var(--text)">Lead novo no CRM</strong> → planilha atualizada e gerente notificado</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     4 · DESENVOLVIMENTO DE APPS
+══════════════════════════════════ -->
+<section class="srv-section" id="apps">
+  <div class="wrap">
+    <div class="srv-grid reverse">
+      <div class="fi">
+        <div class="srv-tag"><span style="width:6px;height:6px;background:var(--orange);border-radius:50%;flex-shrink:0"></span> Sob Medida</div>
+        <div class="srv-icon-lg">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h2 class="srv-title">Desenvolvimento de Aplicativos</h2>
+        <p class="srv-desc">Criamos sistemas e aplicativos web e mobile do zero, adaptados exatamente à sua necessidade. Seja um sistema de gestão interno, uma plataforma para seus clientes ou um produto digital novo — desenvolvemos com qualidade e atenção ao detalhe.</p>
+        <ul class="feat-list">
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Sistemas de gestão personalizados (ERP, CRM, controle interno)</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Plataformas SaaS e produtos digitais</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Apps mobile (iOS e Android)</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Integrações com APIs e sistemas externos</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Painéis administrativos e dashboards</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Manutenção e evolução contínua do produto</li>
+        </ul>
+        <div class="for-whom">
+          <div class="for-whom-lbl">Ideal para</div>
+          <p>Empresas que precisam de um sistema que não existe no mercado, empreendedores com ideia de produto digital ou negócios que precisam substituir processos manuais por um sistema próprio.</p>
+        </div>
+        <a href="https://wa.me/SEUNUMERO?text=Olá%2C%20preciso%20desenvolver%20um%20aplicativo" class="btn btn-primary">Solicitar Orçamento →</a>
+      </div>
+      <div class="fi d2 srv-visual">
+        <div class="srv-card-vis">
+          <div style="font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:500;">Processo de Desenvolvimento</div>
+          <div style="display:flex;flex-direction:column;gap:0;">
+            <div style="display:flex;gap:16px;padding-bottom:20px;border-left:2px solid var(--orange-border);margin-left:8px;padding-left:20px;position:relative;"><div style="position:absolute;left:-5px;top:0;width:10px;height:10px;background:var(--orange);border-radius:50%;"></div><div><strong style="font-size:14px;">1. Diagnóstico</strong><p style="font-size:13px;color:var(--text-3);margin-top:2px;">Entendemos sua necessidade real</p></div></div>
+            <div style="display:flex;gap:16px;padding-bottom:20px;border-left:2px solid var(--orange-border);margin-left:8px;padding-left:20px;position:relative;"><div style="position:absolute;left:-5px;top:0;width:10px;height:10px;background:var(--orange);border-radius:50%;"></div><div><strong style="font-size:14px;">2. Proposta</strong><p style="font-size:13px;color:var(--text-3);margin-top:2px;">Escopo, prazo e investimento</p></div></div>
+            <div style="display:flex;gap:16px;padding-bottom:20px;border-left:2px solid var(--orange-border);margin-left:8px;padding-left:20px;position:relative;"><div style="position:absolute;left:-5px;top:0;width:10px;height:10px;background:var(--orange);border-radius:50%;"></div><div><strong style="font-size:14px;">3. Desenvolvimento</strong><p style="font-size:13px;color:var(--text-3);margin-top:2px;">Entregas incrementais com feedback</p></div></div>
+            <div style="display:flex;gap:16px;margin-left:8px;padding-left:20px;position:relative;"><div style="position:absolute;left:-5px;top:0;width:10px;height:10px;background:var(--orange);border-radius:50%;"></div><div><strong style="font-size:14px;">4. Entrega + Suporte</strong><p style="font-size:13px;color:var(--text-3);margin-top:2px;">Deploy, treinamento e manutenção</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     5 · LANDING PAGES
+══════════════════════════════════ -->
+<section class="srv-section" id="lp">
+  <div class="wrap">
+    <div class="srv-grid">
+      <div class="fi">
+        <div class="srv-tag"><span style="width:6px;height:6px;background:var(--orange);border-radius:50%;flex-shrink:0"></span> Disponível</div>
+        <div class="srv-icon-lg">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h2 class="srv-title">Landing Pages</h2>
+        <p class="srv-desc">Criamos páginas de alta conversão, modernas e responsivas — alinhadas à identidade visual do seu negócio. Focamos na experiência do usuário e em transformar visitantes em clientes. A página que você está visitando agora é um exemplo do nosso trabalho.</p>
+        <ul class="feat-list">
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Design moderno e personalizado à sua marca</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>100% responsivo — perfeito no celular e no desktop</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Animações e micro-interações para engajar visitantes</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Formulários integrados com WhatsApp ou CRM</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Otimização para SEO e velocidade de carregamento</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Entrega rápida — geralmente em 3 a 7 dias úteis</li>
+        </ul>
+        <div class="for-whom">
+          <div class="for-whom-lbl">Ideal para</div>
+          <p>Lançamentos de produtos, serviços profissionais, consultores, agências, negócios locais e qualquer empresa que precisa de presença online de qualidade.</p>
+        </div>
+        <a href="https://wa.me/SEUNUMERO?text=Olá%2C%20preciso%20de%20uma%20landing%20page" class="btn btn-primary">Solicitar Orçamento →</a>
+      </div>
+      <div class="fi d2 srv-visual">
+        <div class="srv-card-vis">
+          <div style="font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:500;">O Que Entregamos</div>
+          <div class="metric-grid">
+            <div class="metric"><div class="metric-val">3-7</div><div class="metric-lbl">Dias úteis de entrega</div></div>
+            <div class="metric"><div class="metric-val">100%</div><div class="metric-lbl">Responsivo mobile</div></div>
+            <div class="metric"><div class="metric-val">A+</div><div class="metric-lbl">Performance PageSpeed</div></div>
+            <div class="metric"><div class="metric-val">∞</div><div class="metric-lbl">Revisões incluídas</div></div>
+          </div>
+          <div class="chip-row">
+            <span class="chip">HTML/CSS/JS</span><span class="chip">Next.js</span>
+            <span class="chip">SEO</span><span class="chip">WhatsApp</span><span class="chip">Analytics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     6 · E-COMMERCE
+══════════════════════════════════ -->
+<section class="srv-section" id="ecommerce">
+  <div class="wrap">
+    <div class="srv-grid reverse">
+      <div class="fi">
+        <div class="srv-tag"><span style="width:6px;height:6px;background:var(--text-3);border-radius:50%;flex-shrink:0"></span> Em Breve</div>
+        <div class="srv-icon-lg" style="opacity:.7">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        </div>
+        <h2 class="srv-title">E-commerce</h2>
+        <p class="srv-desc">Criamos lojas virtuais completas, integradas com os principais meios de pagamento e logística do mercado. Do catálogo de produtos ao checkout — entregamos uma loja pronta para vender, com design alinhado à sua marca.</p>
+        <ul class="feat-list">
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Catálogo de produtos com fotos, variantes e estoque</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Integração com Mercado Pago, Stripe e outros gateways</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Cálculo automático de frete (Correios e transportadoras)</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Painel administrativo para gerenciar pedidos</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>E-mails automáticos de confirmação e atualização de pedido</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Otimizado para SEO e conversão mobile</li>
+        </ul>
+        <div class="for-whom">
+          <div class="for-whom-lbl">Ideal para</div>
+          <p>Lojistas físicos que querem vender online, marcas que precisam de loja própria (sem depender de marketplaces) e negócios que querem escalar vendas digitais.</p>
+        </div>
+        <a href="https://wa.me/SEUNUMERO?text=Olá%2C%20tenho%20interesse%20em%20E-commerce" class="btn btn-primary">Entrar na Lista de Espera →</a>
+      </div>
+      <div class="fi d2 srv-visual" style="opacity:.8">
+        <div class="srv-card-vis">
+          <div style="font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:500;">Tecnologias Previstas</div>
+          <div class="chip-row" style="margin-top:0">
+            <span class="chip">Next.js</span><span class="chip">Stripe</span><span class="chip">Mercado Pago</span>
+            <span class="chip">Correios API</span><span class="chip">Frenet</span><span class="chip">Cloudflare</span>
+            <span class="chip">Vercel</span><span class="chip">PostgreSQL</span>
+          </div>
+          <div style="margin-top:24px;padding:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;text-align:center;">
+            <p style="font-size:14px;color:var(--text-2);line-height:1.6;">Quer ser avisado quando lançarmos?<br>Entre em contato e entraremos em lista prioritária.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BAND ── -->
+<div class="cta-band">
+  <div class="wrap">
+    <div class="cta-band-inner">
+      <h2>Não encontrou o que precisa?<br><em>Provavelmente fazemos.</em></h2>
+      <div class="btns">
+        <a href="https://wa.me/SEUNUMERO" class="btn btn-white" style="font-size:16px;padding:14px 28px;">Falar Agora →</a>
+        <a href="precos.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;font-size:16px;padding:14px 28px;border:1px solid rgba(255,255,255,.25);">Ver Preços</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><img src="assets/logos/logo-dark.png" alt="Neural Forge" height="30"></a>
+        <p>Soluções Forjadas com Inteligência.<br>Transformamos problemas em software.</p>
+      </div>
+      <div class="footer-col"><h4>Empresa</h4><ul><li><a href="index.html#sobre">Sobre</a></li><li><a href="index.html#diferenciais">Diferenciais</a></li><li><a href="index.html#contato">Contato</a></li></ul></div>
+      <div class="footer-col"><h4>Serviços</h4><ul><li><a href="#ia">Atendimento com IA</a></li><li><a href="#kanban">Kanban</a></li><li><a href="#automacao">Automação</a></li><li><a href="#apps">Aplicativos</a></li></ul></div>
+      <div class="footer-col"><h4>Mais</h4><ul><li><a href="precos.html">Preços</a></li><li><a href="https://wa.me/SEUNUMERO">WhatsApp</a></li><li><a href="mailto:contato@neuralforgesolutions.com.br">E-mail</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Neural Forge. Todos os direitos reservados.</p>
+      <p>neuralforgesolutions.com.br</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
+  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
+  const io = new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('in')), {threshold:0.07});
+  document.querySelectorAll('.fi').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

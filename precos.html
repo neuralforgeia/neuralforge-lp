@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preços — Neural Forge</title>
+  <meta name="description" content="Conheça os modelos de precificação da Neural Forge. Soluções personalizadas com preço justo." />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    /* ── PRICING CARDS ── */
+    .pricing-section { padding: 80px 0; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-bottom: 72px; }
+
+    .p-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 32px; position: relative; transition: border-color .25s, box-shadow .25s; display: flex; flex-direction: column; }
+    .p-card:hover { border-color: var(--orange-border); box-shadow: 0 0 48px var(--orange-glow); }
+    .p-card.featured { border-color: var(--orange-border); background: linear-gradient(160deg, rgba(240,76,35,.06) 0%, var(--bg-card) 60%); }
+    .p-card.featured::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background: linear-gradient(90deg, transparent, var(--orange), transparent); border-radius: var(--r) var(--r) 0 0; }
+    .p-featured-badge { display:inline-block; background:var(--orange); color:#fff; font-size:10px; font-weight:700; padding:3px 10px; border-radius:100px; letter-spacing:.06em; text-transform:uppercase; margin-bottom:20px; }
+    .p-category { font-size:11px; color:var(--text-3); text-transform:uppercase; letter-spacing:.14em; font-weight:500; margin-bottom:10px; }
+    .p-name { font-size:22px; font-weight:700; margin-bottom:8px; }
+    .p-desc { font-size:14px; color:var(--text-2); font-weight:300; line-height:1.7; margin-bottom:24px; flex:1; }
+    .p-price { margin-bottom:24px; }
+    .p-price-label { font-size:12px; color:var(--text-3); margin-bottom:4px; }
+    .p-price-val { font-size:36px; font-weight:700; color:var(--orange); line-height:1; }
+    .p-price-sub { font-size:13px; color:var(--text-3); margin-top:4px; }
+    .p-features { list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:28px; }
+    .p-features li { display:flex; align-items:flex-start; gap:10px; font-size:14px; color:var(--text-2); line-height:1.5; }
+    .p-check { color:var(--orange); flex-shrink:0; margin-top:1px; }
+
+    /* ── HOW WE PRICE ── */
+    .how-section { padding: 80px 0; background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .how-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .how-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r); padding: 28px; }
+    .how-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--orange-dim); display: flex; align-items: center; justify-content: center; color: var(--orange); margin-bottom: 16px; }
+    .how-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .how-card p { font-size: 14px; color: var(--text-2); font-weight: 300; line-height: 1.75; }
+
+    /* ── FAQ ── */
+    .faq-section { padding: 80px 0; }
+    .faq-grid { max-width: 760px; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-sm); overflow: hidden; }
+    .faq-q { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; cursor: pointer; user-select: none; font-size: 15px; font-weight: 500; gap: 16px; transition: color .2s; }
+    .faq-q:hover { color: var(--orange); }
+    .faq-icon { flex-shrink: 0; transition: transform .3s; color: var(--text-3); }
+    .faq-item.open .faq-icon { transform: rotate(45deg); color: var(--orange); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .faq-item.open .faq-a { max-height: 300px; }
+    .faq-a p { padding: 0 24px 20px; font-size: 15px; color: var(--text-2); font-weight: 300; line-height: 1.75; }
+
+    @media(max-width:1024px){ .pricing-grid{ grid-template-columns:repeat(2,1fr); } .how-grid{ grid-template-columns:1fr 1fr; } }
+    @media(max-width:768px)  { .pricing-grid{ grid-template-columns:1fr; } .how-grid{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><img src="assets/logos/logo-dark.png" alt="Neural Forge" height="36"></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#sobre">Sobre</a></li>
+        <li><a href="servicos.html">Serviços</a></li>
+        <li><a href="precos.html" class="active">Preços</a></li>
+        <li><a href="index.html#contato" class="nav-cta">Fale Conosco</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+  <div class="wrap">
+    <a href="index.html" class="back-link fi">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Voltar ao início
+    </a>
+    <div class="sec-label fi d1">Investimento</div>
+    <h1 class="fi d2">Preços <span class="grad">Transparentes</span></h1>
+    <p class="fi d3">Cada projeto é único — por isso nossos preços também são. Abaixo você encontra os modelos de cobrança e a faixa de referência para cada tipo de solução.</p>
+  </div>
+</div>
+
+<!-- ── PRICING CARDS ── -->
+<section class="pricing-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label fi">Modelos de Serviço</div>
+      <h2 class="sec-title fi d1">O que cabe no seu momento</h2>
+      <p class="sec-sub fi d2">Trabalhamos com projeto único (one-time) e com serviços mensais recorrentes. Escolha o modelo que faz mais sentido para o seu negócio.</p>
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- Card 1: Automação / IA Mensal -->
+      <div class="p-card featured fi">
+        <div class="p-featured-badge">Mais Procurado</div>
+        <div class="p-category">Recorrente · Mensal</div>
+        <div class="p-name">Atendimento com IA</div>
+        <p class="p-desc">Implantação + operação mensal do atendimento automatizado com IA no seu WhatsApp. Inclui configuração, manutenção e evolução contínua dos fluxos.</p>
+        <div class="p-price">
+          <div class="p-price-label">A partir de</div>
+          <div class="p-price-val">Sob consulta</div>
+          <div class="p-price-sub">Valor varia conforme volume e complexidade</div>
+        </div>
+        <ul class="p-features">
+          <li><svg class="p-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Configuração inicial completa</li>
+          <li><svg class="p-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>IA treinada para o seu negócio</li>
+          <li><svg class="p-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Manutenção e ajustes mensais</li>
+          <li><svg class="p-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Suporte dedicado via WhatsApp</li>
+          <li><svg class="p-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Relatório mensal de atendimentos</li>
+        </ul>
+        <a href="https://wa.me/SEUNUMERO?text=Olá%2C%20quero%20saber%20o%20preço%20do%20Atendimento%20com%20IA" class="btn btn-primary" style="width:100%;justify-content:center;">Solicitar Proposta</a>
+      </div>
+
+      <!-- Card 2: Landing Page -->
+      <div class="p-card fi d1">
+        <div class="p-category">Projeto Único · One-time</div>
+        <div class="p-name">Landing Page</div>
+        <p class="p-desc">Desenvolvimento da sua página de apresentação ou conversão. Design exclusivo, responsivo e alinhado à sua identidade visual.</p>
+        <div class="p-price">
+          <div class="p-price-label">A partir de</div>
+          <div class="p-price-val">Sob consulta</div>
+          <div class="p-price-sub">Entrega em 3 a 7 dias úteis</div>
+        </div>
+        <ul class="p-features">
+          <li><svg class="p-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Design exclusivo à sua marca</li>
+          <li><svg class="p-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Responsivo para celular e desktop</li>
+          <li><svg class="p-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Animações e micro-interações</li>
+          <li><svg class="p-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Integração WhatsApp / formulário</li>
+          <li><svg class="p-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Revisões ilimitadas até aprovação</li>
+        </ul>
+        <a href="https://wa.me/SEUNUMERO?text=Olá%2C%20quero%20saber%20o%20preço%20de%20uma%20landing%20page" class="btn btn-outline" style="width:100%;justify-content:center;">Solicitar Proposta</a>
+      </div>
+
+      <!-- Card 3: Automação / App -->
+      <div class="p-card fi d2">
+        <div class="p-category">Projeto Único · One-time</div>
+        <div class="p-name">Automação & Aplicativos</div>
+        <p class="p-desc">Desenvolvimento de automações de processos ou aplicativos sob medida. Escopo, prazo e valor definidos após diagnóstico.</p>
+        <div class="p-price">
+          <div class="p-price-label">Investimento</div>
+          <div class="p-price-val">Sob consulta</div>
+          <div class="p-price-sub">Proposta personalizada após briefing</div>
+        </div>
+        <ul class="p-features">
+          <li><svg class="p-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Diagnóstico gratuito do problema</li>
+          <li><svg class="p-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Escopo e prazo definidos juntos</li>
+          <li><svg class="p-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Entregas incrementais com aprovação</li>
+          <li><svg class="p-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Código fonte entregue ao cliente</li>
+          <li><svg class="p-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Suporte pós-entrega incluído</li>
+        </ul>
+        <a href="https://wa.me/SEUNUMERO?text=Olá%2C%20quero%20fazer%20um%20diagnóstico%20gratuito" class="btn btn-outline" style="width:100%;justify-content:center;">Diagnóstico Gratuito</a>
+      </div>
+
+    </div>
+
+    <!-- Notice -->
+    <div class="fi" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:24px 28px;display:flex;align-items:flex-start;gap:16px;max-width:760px;">
+      <svg style="color:var(--orange);flex-shrink:0;margin-top:2px" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <div>
+        <strong style="font-size:15px;">Por que "sob consulta"?</strong>
+        <p style="font-size:14px;color:var(--text-2);font-weight:300;line-height:1.7;margin-top:4px;">Cada projeto tem complexidades únicas. Ao invés de cobrar um valor genérico que pode ser injusto para você ou para nós, preferimos conversar primeiro, entender seu problema e apresentar uma proposta que faça sentido para os dois lados. A conversa inicial é sempre gratuita e sem compromisso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW WE PRICE ── -->
+<section class="how-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label fi">Como Funciona</div>
+      <h2 class="sec-title fi d1">Da conversa à proposta</h2>
+      <p class="sec-sub fi d2">Nosso processo é simples, transparente e sem pressão.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-card fi">
+        <div class="how-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>1. Diagnóstico gratuito</h3>
+        <p>Você nos conta o problema. A gente escuta com atenção e faz as perguntas certas. Sem compromisso, sem custo — só conversa.</p>
+      </div>
+      <div class="how-card fi d1">
+        <div class="how-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <h3>2. Proposta detalhada</h3>
+        <p>Apresentamos um escopo claro com o que será entregue, em quanto tempo e quanto vai custar. Sem surpresas no meio do caminho.</p>
+      </div>
+      <div class="how-card fi d2">
+        <div class="how-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h3>3. Aprovação e início</h3>
+        <p>Você aprova o que faz sentido. A partir daí, começamos o desenvolvimento com entregas incrementais e feedback constante.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="faq-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label fi">Dúvidas Frequentes</div>
+      <h2 class="sec-title fi d1">Perguntas sobre preço</h2>
+    </div>
+    <div class="faq-grid fi">
+
+      <div class="faq-item">
+        <div class="faq-q">
+          Qual o prazo de entrega de um projeto?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a"><p>Depende da complexidade. Landing pages costumam ser entregues em 3 a 7 dias úteis. Automações simples levam de 1 a 2 semanas. Aplicativos mais robustos têm prazo definido na proposta, com entregas parciais ao longo do processo.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          Como funciona o pagamento?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a"><p>Para projetos únicos, trabalhamos geralmente com 50% na aprovação da proposta e 50% na entrega final. Para serviços recorrentes, a cobrança é mensal. Aceitamos PIX, transferência e cartão.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          Existe contrato?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a"><p>Sim. Formalizamos tudo em contrato antes de iniciar qualquer projeto. O documento especifica escopo, prazo, valores, formas de pagamento e responsabilidades de ambas as partes.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          E se eu precisar de suporte depois da entrega?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a"><p>Todo projeto inclui um período de suporte pós-entrega. Para manutenção contínua, oferecemos planos mensais de suporte e evolução. Também temos parceiros de longo prazo que preferem nos ter como time de tecnologia dedicado.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          Posso pedir mudanças durante o projeto?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a"><p>Sim, trabalhamos de forma colaborativa. Pequenas alterações durante o processo são absorvidas. Mudanças que alteram significativamente o escopo são avaliadas e discutidas antes de impactar prazo ou valor.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          Vocês atendem empresas de qualquer tamanho?
+          <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a"><p>Sim. Atendemos desde autônomos e microempreendedores até empresas maiores. O tamanho do projeto se adapta ao tamanho do cliente. Nossa missão é tornar tecnologia de qualidade acessível para qualquer negócio.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BAND ── -->
+<div class="cta-band">
+  <div class="wrap">
+    <div class="cta-band-inner">
+      <h2>Pronto para dar o primeiro passo?<br><em>A conversa inicial é gratuita.</em></h2>
+      <div class="btns">
+        <a href="https://wa.me/SEUNUMERO?text=Olá%2C%20quero%20um%20diagnóstico%20gratuito" class="btn btn-white" style="font-size:16px;padding:14px 28px;">Diagnóstico Gratuito →</a>
+        <a href="servicos.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;font-size:16px;padding:14px 28px;border:1px solid rgba(255,255,255,.25);">Ver Serviços</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><img src="assets/logos/logo-dark.png" alt="Neural Forge" height="30"></a>
+        <p>Soluções Forjadas com Inteligência.<br>Transformamos problemas em software.</p>
+      </div>
+      <div class="footer-col"><h4>Empresa</h4><ul><li><a href="index.html#sobre">Sobre</a></li><li><a href="index.html#diferenciais">Diferenciais</a></li><li><a href="index.html#contato">Contato</a></li></ul></div>
+      <div class="footer-col"><h4>Serviços</h4><ul><li><a href="servicos.html">Ver todos</a></li><li><a href="servicos.html#ia">Atendimento com IA</a></li><li><a href="servicos.html#automacao">Automação</a></li></ul></div>
+      <div class="footer-col"><h4>Mais</h4><ul><li><a href="precos.html">Preços</a></li><li><a href="https://wa.me/SEUNUMERO">WhatsApp</a></li><li><a href="mailto:contato@neuralforgesolutions.com.br">E-mail</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Neural Forge. Todos os direitos reservados.</p>
+      <p>neuralforgesolutions.com.br</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
+  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
+  const io = new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('in')), {threshold:0.07});
+  document.querySelectorAll('.fi').forEach(el => io.observe(el));
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>

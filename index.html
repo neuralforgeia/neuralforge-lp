@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neural Forge — Soluções Forjadas com Inteligência</title>
+  <meta name="description" content="Automatize processos, implante atendimento com IA e escale seu negócio com soluções de software 100% personalizadas. Neural Forge — Soluções Forjadas com Inteligência." />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    /* ── HERO ─────────────────────────────── */
+    .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 120px 0 80px; }
+    .hero-orb { position: absolute; border-radius: 50%; pointer-events: none; }
+    .hero-orb-1 { width: 800px; height: 800px; background: radial-gradient(circle, rgba(240,76,35,.16) 0%, transparent 65%); filter: blur(90px); top: -260px; left: -200px; animation: orb1 24s ease-in-out infinite; }
+    .hero-orb-2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(240,76,35,.10) 0%, transparent 65%); filter: blur(80px); bottom: -80px; right: -60px; animation: orb2 30s ease-in-out infinite; }
+    @keyframes orb1 { 0%,100%{transform:translate(0,0)} 40%{transform:translate(80px,60px)} 70%{transform:translate(-40px,80px)} }
+    @keyframes orb2 { 0%,100%{transform:translate(0,0)} 35%{transform:translate(-60px,-50px)} 70%{transform:translate(50px,-70px)} }
+    .hero-grid { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 5%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 5%, transparent 70%); }
+    .hero-content { position: relative; z-index: 2; max-width: 920px; }
+    .hero h1 { font-size: clamp(42px, 6.5vw, 78px); font-weight: 700; line-height: 1.04; letter-spacing: -.03em; margin: 24px 0 28px; }
+    .hero-sub { font-size: clamp(16px, 1.8vw, 19px); color: var(--text-2); font-weight: 300; max-width: 600px; line-height: 1.8; margin-bottom: 44px; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    /* Word rotator */
+    .word-rotator { display: inline-block; position: relative; }
+    #wordEl { transition: opacity .25s, transform .25s; display: inline; }
+    .hero-scroll { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); color: var(--text-3); font-size: 10px; letter-spacing: .12em; display: flex; flex-direction: column; align-items: center; gap: 6px; animation: bob 2.5s ease-in-out infinite; }
+    @keyframes bob { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-8px)} }
+
+    /* ── STATS ─────────────────────────────── */
+    .stats-bar { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 44px 0; background: var(--bg-card); }
+    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); text-align: center; gap: 32px; }
+    .stat-val { font-size: 42px; font-weight: 700; color: var(--orange); line-height: 1; }
+    .stat-lbl { font-size: 13px; color: var(--text-2); font-weight: 300; margin-top: 6px; }
+    @media(max-width:768px){ .stats-grid{ grid-template-columns:repeat(2,1fr); gap:24px; } }
+
+    /* ── ABOUT ─────────────────────────────── */
+    .about { padding: 96px 0; background: var(--bg); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-text p { color: var(--text-2); font-weight: 300; line-height: 1.85; margin-bottom: 18px; font-size: 16px; }
+    .about-text p strong { color: var(--text); font-weight: 500; }
+    .val-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 32px; position: relative; overflow: hidden; }
+    .val-card::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background: linear-gradient(90deg, var(--orange), rgba(240,76,35,.3), transparent); }
+    .val-card-lbl { font-size:11px; color:var(--text-3); text-transform:uppercase; letter-spacing:.14em; margin-bottom:22px; font-weight:500; }
+    .val-list { list-style:none; display:flex; flex-direction:column; gap:14px; }
+    .val-list li { display:flex; align-items:flex-start; gap:12px; font-size:15px; color:var(--text-2); line-height:1.55; }
+    .val-check { color:var(--orange); flex-shrink:0; margin-top:1px; }
+    @media(max-width:768px){ .about-grid{ grid-template-columns:1fr; gap:44px; } }
+
+    /* ── SERVICES TEASER ───────────────────── */
+    .services { padding: 96px 0; background: var(--bg-card); }
+    .services-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:52px; flex-wrap:wrap; gap:16px; }
+    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .s-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r); padding: 28px; transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s, border-color .3s; }
+    .s-card:hover { transform: translateY(-5px); box-shadow: 0 0 0 1px var(--orange-border), 0 24px 48px rgba(0,0,0,.5), 0 0 60px var(--orange-glow); border-color: var(--orange-border); }
+    .s-icon { width: 48px; height: 48px; border-radius: 10px; background: var(--orange-dim); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--orange); }
+    .s-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .s-card p  { font-size: 14px; color: var(--text-2); line-height: 1.72; font-weight: 300; }
+    .s-tag { display:inline-block; margin-top:16px; font-size:11px; font-weight:500; color:var(--orange); background:var(--orange-dim); padding:3px 10px; border-radius:100px; letter-spacing:.05em; }
+    @media(max-width:1024px){ .services-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:768px){ .services-grid{ grid-template-columns:1fr; } .services-head{ flex-direction:column; align-items:flex-start; } }
+
+    /* ── DIFERENCIAIS ──────────────────────── */
+    .dif { padding: 96px 0; background: var(--bg); }
+    .dif-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+    .dif-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 36px; display: flex; gap: 22px; transition: border-color .25s, box-shadow .25s; }
+    .dif-card:hover { border-color: var(--orange-border); box-shadow: 0 0 40px var(--orange-glow); }
+    .dif-num { font-size: 52px; font-weight: 700; color: rgba(240,76,35,.16); line-height: 1; flex-shrink: 0; min-width: 58px; }
+    .dif-body h3 { font-size: 19px; font-weight: 700; margin-bottom: 10px; }
+    .dif-body p  { font-size: 15px; color: var(--text-2); font-weight: 300; line-height: 1.75; }
+    @media(max-width:768px){ .dif-grid{ grid-template-columns:1fr; } }
+
+    /* ── CONTACT ───────────────────────────── */
+    .contact { padding: 96px 0; background: var(--bg-card); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; }
+    .c-opts { display: flex; flex-direction: column; gap: 12px; }
+    .c-opt { display:flex; align-items:center; gap:16px; background:var(--bg); border:1px solid var(--border); border-radius:var(--r-sm); padding:18px 20px; text-decoration:none; color:var(--text); transition:border-color .2s, transform .2s, box-shadow .2s; }
+    .c-opt:hover { border-color:var(--orange-border); transform:translateX(4px); box-shadow:0 0 24px var(--orange-glow); }
+    .c-opt-icon { width:40px; height:40px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .c-opt-text { flex:1; }
+    .c-opt-text strong { display:block; font-size:15px; font-weight:500; margin-bottom:2px; }
+    .c-opt-text span { font-size:13px; color:var(--text-3); }
+    .c-opt-arr { color:var(--text-3); transition:color .2s; }
+    .c-opt:hover .c-opt-arr { color:var(--orange); }
+    .c-form { display:flex; flex-direction:column; gap:14px; }
+    .c-form label { font-size:13px; font-weight:500; color:var(--text-2); display:block; margin-bottom:5px; }
+    .c-form input,.c-form select,.c-form textarea { width:100%; background:var(--bg); border:1px solid var(--border); border-radius:var(--r-sm); padding:12px 14px; font-family:'Ubuntu',Arial,sans-serif; font-size:15px; color:var(--text); outline:none; transition:border-color .2s; resize:vertical; }
+    .c-form input:focus,.c-form select:focus,.c-form textarea:focus { border-color:var(--orange); }
+    .c-form input::placeholder,.c-form textarea::placeholder { color:var(--text-3); }
+    .c-form select option { background:var(--bg-card); }
+    .c-form-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .form-note { font-size:13px; color:var(--text-3); margin-bottom:16px; }
+    @media(max-width:768px){ .contact-grid{ grid-template-columns:1fr; gap:44px; } .c-form-row{ grid-template-columns:1fr; } }
+    @media(max-width:520px){ .hero-ctas{ flex-direction:column; align-items:stretch; } .btn{ justify-content:center; } }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <img src="assets/logos/logo-dark.png" alt="Neural Forge" height="36">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="precos.html">Preços</a></li>
+        <li><a href="#contato" class="nav-cta">Fale Conosco</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="inicio">
+  <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="badge fi"><span class="badge-dot"></span>Soluções Forjadas com Inteligência</div>
+      <h1 class="fi d1">
+        Transformamos problemas<br>
+        em software que <span class="grad" id="wordEl">resolve.</span>
+      </h1>
+      <p class="hero-sub fi d2">
+        Desenvolvemos soluções de software personalizadas que eliminam trabalho manual, automatizam atendimento com IA e dão escala real ao seu negócio — sem complicação.
+      </p>
+      <div class="hero-ctas fi d3">
+        <a href="https://wa.me/SEUNUMERO" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar pelo WhatsApp
+        </a>
+        <a href="mailto:contato@neuralforgesolutions.com.br" class="btn btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Enviar E-mail
+        </a>
+        <a href="servicos.html" class="btn btn-ghost">Ver serviços →</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<!-- ── STATS ── -->
+<div class="stats-bar">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="fi"><div class="stat-val" data-target="2" data-suffix="+">0+</div><div class="stat-lbl">Clientes Ativos</div></div>
+      <div class="fi d1"><div class="stat-val" data-target="3">0</div><div class="stat-lbl">Fundadores</div></div>
+      <div class="fi d2"><div class="stat-val" data-target="6" data-suffix="+">0+</div><div class="stat-lbl">Serviços Disponíveis</div></div>
+      <div class="fi d3"><div class="stat-val" data-target="100" data-suffix="%">0%</div><div class="stat-lbl">Soluções Personalizadas</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section class="about" id="sobre">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="fi">
+        <div class="sec-label">Quem Somos</div>
+        <h2 class="sec-title">Nascemos da obsessão<br>de resolver problemas</h2>
+        <p>A Neural Forge surgiu de uma crença simples: <strong>tecnologia deve libertar pessoas de tarefas mecânicas</strong>. Sempre odiamos trabalho manual repetitivo — e nos apaixonamos pela programação exatamente por isso.</p>
+        <p>Nossa missão é ouvir a dor de cada cliente e propor a melhor solução de software. <strong>Não vendemos produtos de prateleira</strong> — construímos a solução certa para o problema certo, com atenção total e qualidade de entrega.</p>
+        <a href="#contato" class="btn btn-outline" style="margin-top:8px;">Fale com a gente</a>
+      </div>
+      <div class="fi d2">
+        <div class="val-card">
+          <div class="val-card-lbl">Nossa Essência</div>
+          <ul class="val-list">
+            <li><svg class="val-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Escutamos antes de propor — a solução nasce do problema real</li>
+            <li><svg class="val-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>100% personalizado ao perfil e gosto de cada cliente</li>
+            <li><svg class="val-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Qualidade sobre quantidade — sem projetos no piloto automático</li>
+            <li><svg class="val-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Tecnologia acessível — você não precisa ser técnico</li>
+            <li><svg class="val-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Parceria real — do briefing ao suporte pós-entrega</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES TEASER ── -->
+<section class="services" id="servicos">
+  <div class="wrap">
+    <div class="services-head fi">
+      <div>
+        <div class="sec-label">O Que Fazemos</div>
+        <h2 class="sec-title" style="margin-bottom:0">Soluções para cada desafio</h2>
+      </div>
+      <a href="servicos.html" class="btn btn-outline">Ver detalhes completos →</a>
+    </div>
+    <div class="services-grid">
+      <div class="s-card fi">
+        <div class="s-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h8M8 14h5"/></svg></div>
+        <h3>Atendimento com IA</h3>
+        <p>Atendente inteligente no WhatsApp — triagem, respostas e fluxos automáticos 24h/dia.</p>
+        <span class="s-tag">CARRO-CHEFE</span>
+      </div>
+      <div class="s-card fi d1">
+        <div class="s-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="6" height="6" rx="1"/><rect x="9" y="3" width="6" height="6" rx="1"/><rect x="16" y="3" width="6" height="6" rx="1"/><rect x="2" y="10" width="6" height="11" rx="1"/><rect x="9" y="10" width="6" height="5" rx="1"/><rect x="16" y="10" width="6" height="11" rx="1"/></svg></div>
+        <h3>Gestão de Conversas (Kanban)</h3>
+        <p>WhatsApp multiusuário com visão Kanban, hierarquia de acessos e integração com CRMs.</p>
+        <span class="s-tag">EM USO</span>
+      </div>
+      <div class="s-card fi d2">
+        <div class="s-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+        <h3>Automação de Processos</h3>
+        <p>Elimine tarefas repetitivas: contratos, notificações, onboarding e muito mais.</p>
+        <span class="s-tag">POPULAR</span>
+      </div>
+      <div class="s-card fi d3">
+        <div class="s-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3>Desenvolvimento de Aplicativos</h3>
+        <p>Sistemas e apps sob medida — do zero, adaptados ao seu setor e necessidade.</p>
+        <span class="s-tag">SOB MEDIDA</span>
+      </div>
+      <div class="s-card fi d4">
+        <div class="s-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Landing Pages</h3>
+        <p>Páginas de conversão modernas, responsivas e focadas em resultado.</p>
+        <span class="s-tag">DISPONÍVEL</span>
+      </div>
+      <div class="s-card fi d5">
+        <div class="s-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+        <h3>E-commerce</h3>
+        <p>Lojas virtuais integradas com pagamento e logística, prontas para vender.</p>
+        <span class="s-tag">EM BREVE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DIFERENCIAIS ── -->
+<section class="dif" id="diferenciais">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label fi">Por Que a Neural Forge</div>
+      <h2 class="sec-title fi d1">O que nos torna diferentes</h2>
+      <p class="sec-sub fi d2">Não somos uma fábrica de software. Somos parceiros de quem quer resolver problemas de verdade.</p>
+    </div>
+    <div class="dif-grid">
+      <div class="dif-card fi"><div class="dif-num">01</div><div class="dif-body"><h3>Escutamos de verdade</h3><p>Antes de propor qualquer coisa, entendemos sua operação. A solução certa parte do problema certo.</p></div></div>
+      <div class="dif-card fi d1"><div class="dif-num">02</div><div class="dif-body"><h3>100% Personalizado</h3><p>Sem soluções genéricas. Cada projeto é construído do zero para a realidade e o gosto do cliente.</p></div></div>
+      <div class="dif-card fi d2"><div class="dif-num">03</div><div class="dif-body"><h3>Qualidade acima de tudo</h3><p>Preferimos poucos projetos excepcionais. Nosso compromisso é com sua satisfação, não com volume.</p></div></div>
+      <div class="dif-card fi d3"><div class="dif-num">04</div><div class="dif-body"><h3>Tecnologia acessível</h3><p>Simplificamos o complexo. Você não precisa ser técnico para entender e usar o que entregamos.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BAND ── -->
+<div class="cta-band">
+  <div class="wrap">
+    <div class="cta-band-inner">
+      <h2>Tem um problema para resolver?<br><em>A gente quer ouvir.</em></h2>
+      <div class="btns">
+        <a href="https://wa.me/SEUNUMERO" class="btn btn-white" style="font-size:16px;padding:14px 28px;">Falar Agora →</a>
+        <a href="precos.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;font-size:16px;padding:14px 28px;border:1px solid rgba(255,255,255,.25);">Ver Preços</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contato">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label fi">Contato</div>
+      <h2 class="sec-title fi d1">Escolha como prefere ser atendido</h2>
+      <p class="sec-sub fi d2">Sem burocracia. Fale conosco pelo canal que for mais cômodo.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="c-opts fi">
+        <a href="https://wa.me/SEUNUMERO" class="c-opt">
+          <div class="c-opt-icon" style="background:rgba(37,211,102,.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+          <div class="c-opt-text"><strong>WhatsApp</strong><span>Resposta rápida · Atendimento imediato</span></div>
+          <svg class="c-opt-arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+        <a href="mailto:contato@neuralforgesolutions.com.br" class="c-opt">
+          <div class="c-opt-icon" style="background:rgba(240,76,35,.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F04C23" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="c-opt-text"><strong>E-mail</strong><span>contato@neuralforgesolutions.com.br</span></div>
+          <svg class="c-opt-arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+        <a href="https://wa.me/SEUNUMERO?text=Olá%2C%20gostaria%20de%20agendar%20uma%20conversa%20com%20a%20Neural%20Forge" class="c-opt">
+          <div class="c-opt-icon" style="background:rgba(99,102,241,.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div class="c-opt-text"><strong>Agendar uma Conversa</strong><span>Marque um horário para conversarmos</span></div>
+          <svg class="c-opt-arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+      <div class="fi d2">
+        <p class="form-note">Prefere deixar uma mensagem? Preencha abaixo.</p>
+        <form class="c-form" id="contactForm">
+          <div class="c-form-row">
+            <div><label for="fn">Nome</label><input type="text" id="fn" placeholder="Seu nome" required></div>
+            <div><label for="fe">E-mail</label><input type="email" id="fe" placeholder="seu@email.com" required></div>
+          </div>
+          <div><label for="fs">Interesse</label>
+            <select id="fs">
+              <option value="">Selecione um serviço...</option>
+              <option>Atendimento com IA</option><option>Gestão de Conversas (Kanban)</option>
+              <option>Automação de Processos</option><option>Desenvolvimento de Aplicativo</option>
+              <option>Landing Page</option><option>E-commerce</option>
+              <option>Não sei ainda — quero conversar</option>
+            </select>
+          </div>
+          <div><label for="fm">Mensagem</label><textarea id="fm" rows="4" placeholder="Descreva o problema que quer resolver..."></textarea></div>
+          <button type="submit" class="btn btn-primary" id="formBtn" style="width:100%;justify-content:center;">Enviar Mensagem</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><img src="assets/logos/logo-dark.png" alt="Neural Forge" height="30"></a>
+        <p>Soluções Forjadas com Inteligência.<br>Transformamos problemas em software.</p>
+      </div>
+      <div class="footer-col"><h4>Empresa</h4><ul><li><a href="#sobre">Sobre</a></li><li><a href="#diferenciais">Diferenciais</a></li><li><a href="#contato">Contato</a></li></ul></div>
+      <div class="footer-col"><h4>Serviços</h4><ul><li><a href="servicos.html">Ver todos</a></li><li><a href="servicos.html#ia">Atendimento com IA</a></li><li><a href="servicos.html#automacao">Automação</a></li><li><a href="servicos.html#apps">Aplicativos</a></li></ul></div>
+      <div class="footer-col"><h4>Mais</h4><ul><li><a href="precos.html">Preços</a></li><li><a href="https://wa.me/SEUNUMERO">WhatsApp</a></li><li><a href="mailto:contato@neuralforgesolutions.com.br">E-mail</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Neural Forge. Todos os direitos reservados.</p>
+      <p>neuralforgesolutions.com.br</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
+
+  // Mobile menu
+  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
+
+  // Fade-in
+  const io = new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('in')), {threshold:0.08});
+  document.querySelectorAll('.fi').forEach(el => io.observe(el));
+
+  // Animated counters
+  function countUp(el) {
+    const target = +el.dataset.target, suffix = el.dataset.suffix||'', prefix = el.dataset.prefix||'';
+    let start = null;
+    requestAnimationFrame(function step(ts) {
+      if (!start) start = ts;
+      const p = Math.min((ts - start) / 1200, 1);
+      const e = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + Math.round(e * target) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    });
+  }
+  const cio = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { countUp(e.target); cio.unobserve(e.target); } }), {threshold:.5});
+  document.querySelectorAll('.stat-val[data-target]').forEach(el => cio.observe(el));
+
+  // Word rotator
+  const words = ['resolve.','automatiza.','escala.'];
+  let wi = 0;
+  const wordEl = document.getElementById('wordEl');
+  setInterval(() => {
+    wordEl.style.opacity = '0';
+    wordEl.style.transform = 'translateY(-8px)';
+    setTimeout(() => {
+      wi = (wi + 1) % words.length;
+      wordEl.textContent = words[wi];
+      wordEl.style.opacity = '1';
+      wordEl.style.transform = 'translateY(0)';
+    }, 280);
+  }, 3000);
+  wordEl.style.transition = 'opacity .28s ease, transform .28s ease';
+
+  // Contact form
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const n = document.getElementById('fn').value.trim(), em = document.getElementById('fe').value.trim();
+    const s = document.getElementById('fs').value, m = document.getElementById('fm').value.trim();
+    if (!n || !em) { alert('Preencha nome e e-mail.'); return; }
+    const sub = encodeURIComponent(`[Neural Forge] Contato de ${n}`);
+    const body = encodeURIComponent(`Nome: ${n}\nE-mail: ${em}\nServiço: ${s||'—'}\n\nMensagem:\n${m||'—'}`);
+    window.location.href = `mailto:contato@neuralforgesolutions.com.br?subject=${sub}&body=${body}`;
+    const btn = document.getElementById('formBtn');
+    btn.textContent = 'Mensagem enviada!'; btn.style.background = '#22c55e';
+    setTimeout(() => { btn.textContent = 'Enviar Mensagem'; btn.style.background = ''; this.reset(); }, 3500);
+  });
+</script>
+</body>
+</html>
