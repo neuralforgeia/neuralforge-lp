@@ -1,0 +1,54 @@
+/* ═══════════════════════════════════════════════════
+   NEURAL FORGE — servicos.html
+   Service Cards · Devices · Metrics · Chips
+═══════════════════════════════════════════════════ */
+
+.srv-section { padding: 80px 0; border-bottom: 1px solid var(--border); }
+.srv-section:last-of-type { border-bottom: none; }
+.srv-section:nth-child(even) { background: var(--bg-card); }
+.srv-section:nth-child(odd)  { background: var(--bg); }
+
+.srv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.srv-grid.reverse { direction: rtl; }
+.srv-grid.reverse > * { direction: ltr; }
+
+.srv-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--orange-dim); border: 1px solid var(--orange-border); padding: 4px 12px; border-radius: 100px; font-size: 11px; font-weight: 500; color: var(--orange); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 16px; }
+.srv-icon-lg { width: 64px; height: 64px; border-radius: 16px; background: var(--orange-dim); display: flex; align-items: center; justify-content: center; color: var(--orange); margin-bottom: 24px; border: 1px solid var(--orange-border); }
+.srv-title { font-size: clamp(24px, 3vw, 34px); font-weight: 700; letter-spacing: -.02em; line-height: 1.2; margin-bottom: 16px; }
+.srv-desc { font-size: 16px; color: var(--text-2); font-weight: 300; line-height: 1.8; margin-bottom: 28px; }
+
+.feat-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+.feat-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--text-2); line-height: 1.5; }
+.feat-dot { width: 18px; height: 18px; border-radius: 50%; background: var(--orange-dim); border: 1px solid var(--orange-border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.feat-dot svg { color: var(--orange); }
+
+.for-whom { background: var(--bg-raised); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 16px 18px; margin-bottom: 28px; }
+.for-whom-lbl { font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: .12em; font-weight: 500; margin-bottom: 6px; }
+.for-whom p { font-size: 14px; color: var(--text-2); font-weight: 300; line-height: 1.6; }
+
+.srv-visual { position: relative; z-index: 1; }
+.srv-visual::before { content:''; position:absolute; inset:-40px; background: radial-gradient(circle, var(--orange-glow) 0%, transparent 70%); opacity:0.3; pointer-events:none; z-index:-1; }
+
+.device-frame { background: #0b0b0b; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 32px 64px rgba(0,0,0,.6), 0 0 0 1px var(--border); position: relative; transition: transform .3s; }
+.device-frame:hover { transform: scale(1.02); }
+.device-header { height: 28px; background: #161616; border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 14px; gap: 6px; }
+.device-dot { width: 8px; height: 8px; border-radius: 50%; background: #333; }
+.device-dot.red { background: #ff5f57; }
+.device-dot.yellow { background: #febc2e; }
+.device-dot.green { background: #28c840; }
+
+.device-content img { width: 100%; display: block; object-fit: cover; }
+
+.srv-card-vis { background: var(--bg-raised); border: 1px solid var(--border); border-radius: var(--r); padding: 32px; position: relative; overflow: hidden; margin-top: 24px; }
+.srv-card-vis::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background: linear-gradient(90deg, var(--orange), rgba(240,76,35,.3), transparent); }
+.srv-card-vis::after  { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(240,76,35,.04), transparent 65%); pointer-events:none; }
+
+.metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.metric { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; text-align: center; }
+.metric-val { font-size: 32px; font-weight: 700; color: var(--orange); line-height: 1; }
+.metric-lbl { font-size: 12px; color: var(--text-3); margin-top: 4px; font-weight: 300; }
+
+.chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.chip { background: var(--bg-card); border: 1px solid var(--border); border-radius: 100px; padding: 5px 12px; font-size: 12px; color: var(--text-2); }
+
+@media(max-width:900px) { .srv-grid, .srv-grid.reverse { grid-template-columns: 1fr; direction: ltr; gap: 44px; } }

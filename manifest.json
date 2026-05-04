@@ -1,0 +1,23 @@
+{
+  "name": "Neural Forge Solutions",
+  "short_name": "Neural Forge",
+  "description": "Atendimento com IA, automação e sistemas sob medida.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0c0c0c",
+  "theme_color": "#0d0d0d",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "assets/logos/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/logos/logo-dark.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png"
+    }
+  ]
+}
