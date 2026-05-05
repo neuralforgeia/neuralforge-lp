@@ -1,62 +1,114 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serviços — Neural Forge</title>
-  <meta name="description" content="Conheça todos os serviços da Neural Forge: atendimento com IA, automação de processos, aplicativos sob medida, landing pages e e-commerce." />
+  <title>Serviços | Neural Forge</title>
+  <meta name="description" content="Conheça todos os serviços da Neural Forge: atendimento com IA no WhatsApp, gestão de conversas em Kanban, automação de processos, aplicativos sob medida, landing pages e e-commerce." />
+  <meta name="keywords" content="atendimento IA WhatsApp, kanban conversas, automação processos, desenvolvimento aplicativos, landing pages, e-commerce, ERP, CRM" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0d0d0d" />
+  <link rel="canonical" href="https://neuralforgesolutions.com.br/servicos.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Neural Forge" />
+  <meta property="og:url" content="https://neuralforgesolutions.com.br/servicos.html" />
+  <meta property="og:title" content="Serviços | Neural Forge" />
+  <meta property="og:description" content="Atendimento com IA, Kanban de conversas, automação, apps sob medida, landing pages e e-commerce. Para clínicas, lojas e negócios que querem escalar." />
+  <meta property="og:image" content="https://neuralforgesolutions.com.br/assets/images/neural_forge_hero.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Serviços | Neural Forge" />
+  <meta name="twitter:description" content="IA, automação, apps sob medida, landing pages e e-commerce." />
+  <meta name="twitter:image" content="https://neuralforgesolutions.com.br/assets/images/neural_forge_hero.png" />
+
   <link rel="icon" type="image/svg+xml" href="assets/logos/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/logos/logo-dark.png" />
+  <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="assets/css/main.css" />
-  <style>
-    /* ── SERVICE CARDS ── */
-    .srv-section { padding: 80px 0; border-bottom: 1px solid var(--border); }
-    .srv-section:last-of-type { border-bottom: none; }
-    .srv-section:nth-child(even) { background: var(--bg-card); }
-    .srv-section:nth-child(odd)  { background: var(--bg); }
+  <link rel="stylesheet" href="assets/css/servicos.css" />
 
-    .srv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-    .srv-grid.reverse { direction: rtl; }
-    .srv-grid.reverse > * { direction: ltr; }
-
-    .srv-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--orange-dim); border: 1px solid var(--orange-border); padding: 4px 12px; border-radius: 100px; font-size: 11px; font-weight: 500; color: var(--orange); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 16px; }
-    .srv-icon-lg { width: 64px; height: 64px; border-radius: 16px; background: var(--orange-dim); display: flex; align-items: center; justify-content: center; color: var(--orange); margin-bottom: 24px; border: 1px solid var(--orange-border); }
-    .srv-title { font-size: clamp(24px, 3vw, 34px); font-weight: 700; letter-spacing: -.02em; line-height: 1.2; margin-bottom: 16px; }
-    .srv-desc { font-size: 16px; color: var(--text-2); font-weight: 300; line-height: 1.8; margin-bottom: 28px; }
-
-    .feat-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
-    .feat-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--text-2); line-height: 1.5; }
-    .feat-dot { width: 18px; height: 18px; border-radius: 50%; background: var(--orange-dim); border: 1px solid var(--orange-border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
-    .feat-dot svg { color: var(--orange); }
-
-    .for-whom { background: var(--bg-raised); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 16px 18px; margin-bottom: 28px; }
-    .for-whom-lbl { font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: .12em; font-weight: 500; margin-bottom: 6px; }
-    .for-whom p { font-size: 14px; color: var(--text-2); font-weight: 300; line-height: 1.6; }
-
-    .srv-visual { position: relative; }
-    .srv-card-vis { background: var(--bg-raised); border: 1px solid var(--border); border-radius: var(--r); padding: 32px; position: relative; overflow: hidden; }
-    .srv-card-vis::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background: linear-gradient(90deg, var(--orange), rgba(240,76,35,.3), transparent); }
-    .srv-card-vis::after  { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(240,76,35,.04), transparent 65%); pointer-events:none; }
-
-    .metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .metric { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; text-align: center; }
-    .metric-val { font-size: 32px; font-weight: 700; color: var(--orange); line-height: 1; }
-    .metric-lbl { font-size: 12px; color: var(--text-3); margin-top: 4px; font-weight: 300; }
-
-    .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-    .chip { background: var(--bg-card); border: 1px solid var(--border); border-radius: 100px; padding: 5px 12px; font-size: 12px; color: var(--text-2); }
-
-    @media(max-width:900px) { .srv-grid, .srv-grid.reverse { grid-template-columns: 1fr; direction: ltr; gap: 44px; } }
-  </style>
+  <!-- Schema.org / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://neuralforgesolutions.com.br/" },
+          { "@type": "ListItem", "position": 2, "name": "Serviços", "item": "https://neuralforgesolutions.com.br/servicos.html" }
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://neuralforgesolutions.com.br/servicos.html#ia",
+        "name": "Atendimento Automatizado com IA",
+        "serviceType": "Chatbot com IA no WhatsApp",
+        "description": "Atendente inteligente no WhatsApp 24/7 com triagem, respostas automáticas e transferência para humano.",
+        "provider": { "@id": "https://neuralforgesolutions.com.br/#organization" },
+        "areaServed": { "@type": "Country", "name": "Brasil" }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://neuralforgesolutions.com.br/servicos.html#kanban",
+        "name": "Gestão de Conversas via WhatsApp (Kanban)",
+        "serviceType": "Software de gestão de atendimento",
+        "description": "Plataforma web que centraliza atendimentos do WhatsApp em interface Kanban com multiusuário, hierarquia e integração com CRMs.",
+        "provider": { "@id": "https://neuralforgesolutions.com.br/#organization" }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://neuralforgesolutions.com.br/servicos.html#automacao",
+        "name": "Automação de Processos",
+        "serviceType": "Automação de workflows e integrações",
+        "description": "Mapeamento e automação de processos repetitivos: onboarding, contratos, notificações e integrações entre sistemas.",
+        "provider": { "@id": "https://neuralforgesolutions.com.br/#organization" }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://neuralforgesolutions.com.br/servicos.html#apps",
+        "name": "Desenvolvimento de Aplicativos",
+        "serviceType": "Desenvolvimento de software sob medida",
+        "description": "Sistemas web e mobile sob medida: ERPs, CRMs, plataformas SaaS, dashboards e apps iOS/Android.",
+        "provider": { "@id": "https://neuralforgesolutions.com.br/#organization" }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://neuralforgesolutions.com.br/servicos.html#lp",
+        "name": "Landing Pages",
+        "serviceType": "Desenvolvimento de landing pages",
+        "description": "Páginas de alta conversão, responsivas, otimizadas para SEO e integradas com WhatsApp/CRM.",
+        "provider": { "@id": "https://neuralforgesolutions.com.br/#organization" }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://neuralforgesolutions.com.br/servicos.html#ecommerce",
+        "name": "E-commerce",
+        "serviceType": "Desenvolvimento de loja virtual",
+        "description": "Lojas virtuais completas com checkout, integração com gateways de pagamento e cálculo de frete.",
+        "provider": { "@id": "https://neuralforgesolutions.com.br/#organization" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
 
 <!-- ── NAVBAR ── -->
 <nav class="nav" id="nav">
   <div class="wrap">
     <div class="nav-inner">
-      <a href="index.html" class="logo"><img src="assets/logos/logo-dark.png" alt="Neural Forge" height="36"></a>
+      <a href="index.html" class="logo"><img src="assets/logos/logo-dark.png" alt="Neural Forge" width="160" height="36" decoding="async"></a>
       <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#inicio">Início</a></li>
         <li><a href="index.html#sobre">Sobre</a></li>
+        <li><a href="index.html#solucoes">Soluções</a></li>
         <li><a href="servicos.html" class="active">Serviços</a></li>
         <li><a href="precos.html">Preços</a></li>
         <li><a href="index.html#contato" class="nav-cta">Fale Conosco</a></li>
@@ -68,12 +120,14 @@
   </div>
 </nav>
 
+<main id="main">
+
 <!-- ── PAGE HERO ── -->
 <div class="page-hero">
   <div class="wrap">
     <a href="index.html" class="back-link fi">
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-      Voltar ao início
+      Ir para o Início
     </a>
     <div class="sec-label fi d1">O Que Fazemos</div>
     <h1 class="fi d2">Nossos <span class="grad">Serviços</span></h1>
@@ -93,7 +147,7 @@
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h8M8 14h5"/></svg>
         </div>
         <h2 class="srv-title">Atendimento Automatizado com IA</h2>
-        <p class="srv-desc">Implante um atendente inteligente no seu WhatsApp que funciona 24h por dia, 7 dias por semana — sem intervenção humana para atendimentos de rotina. A IA faz triagem, responde dúvidas, coleta dados e encaminha os casos certos para o time humano.</p>
+        <p class="srv-desc">Implante um atendente inteligente no seu WhatsApp que funciona 24h por dia, 7 dias por semana, sem intervenção humana para atendimentos de rotina. A IA faz triagem, responde dúvidas, coleta dados e encaminha os casos certos para o time humano.</p>
         <ul class="feat-list">
           <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Triagem automática de mensagens e intenções do cliente</li>
           <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Respostas personalizadas com base no seu negócio</li>
@@ -109,6 +163,16 @@
         <a href="https://wa.me/5571993866628?text=Olá%2C%20tenho%20interesse%20em%20Atendimento%20com%20IA" class="btn btn-primary">Solicitar Orçamento →</a>
       </div>
       <div class="fi d2 srv-visual">
+        <div class="device-frame">
+          <div class="device-header">
+            <div class="device-dot red"></div>
+            <div class="device-dot yellow"></div>
+            <div class="device-dot green"></div>
+          </div>
+          <div class="device-content">
+            <img src="assets/images/neural_chat_ui_vet.png" alt="Tela de atendimento com IA no WhatsApp" width="800" height="600" loading="lazy" decoding="async">
+          </div>
+        </div>
         <div class="srv-card-vis">
           <div style="font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:500;">Impacto Esperado</div>
           <div class="metric-grid">
@@ -141,9 +205,9 @@
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="6" height="6" rx="1"/><rect x="9" y="3" width="6" height="6" rx="1"/><rect x="16" y="3" width="6" height="6" rx="1"/><rect x="2" y="10" width="6" height="11" rx="1"/><rect x="9" y="10" width="6" height="5" rx="1"/><rect x="16" y="10" width="6" height="11" rx="1"/></svg>
         </div>
         <h2 class="srv-title">Gestão de Conversas via WhatsApp (Kanban)</h2>
-        <p class="srv-desc">Uma plataforma web que centraliza todos os atendimentos do WhatsApp em uma interface visual estilo Kanban. Cada conversa se torna um card que pode ser movido entre etapas — como "Novo contato", "Em atendimento", "Aguardando retorno" e "Concluído".</p>
+        <p class="srv-desc">Uma plataforma web que centraliza todos os atendimentos do WhatsApp em uma interface visual estilo Kanban. Cada conversa vira um card que pode ser movido entre etapas como "Novo contato", "Em atendimento", "Aguardando retorno" e "Concluído".</p>
         <ul class="feat-list">
-          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Acesso multiusuário — cada agente com login próprio</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Acesso multiusuário, cada agente com login próprio</li>
           <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Hierarquia de acessos: supervisores, atendentes e administradores</li>
           <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Visualização Kanban com arraste de conversas entre colunas</li>
           <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Funciona como um WhatsApp Web paralelo, sem alterar o app original</li>
@@ -157,13 +221,23 @@
         <a href="https://wa.me/5571993866628?text=Olá%2C%20tenho%20interesse%20no%20Kanban%20de%20Conversas" class="btn btn-primary">Solicitar Orçamento →</a>
       </div>
       <div class="fi d2 srv-visual">
+        <div class="device-frame">
+          <div class="device-header">
+            <div class="device-dot red"></div>
+            <div class="device-dot yellow"></div>
+            <div class="device-dot green"></div>
+          </div>
+          <div class="device-content">
+            <img src="assets/images/kanban_fictitious.png" alt="Painel Kanban de gestão de conversas WhatsApp" style="object-position: left top;" width="800" height="600" loading="lazy" decoding="async">
+          </div>
+        </div>
         <div class="srv-card-vis">
           <div style="font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:500;">Funcionalidades</div>
           <div style="display:flex;flex-direction:column;gap:10px;">
-            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-size:14px;color:var(--text-2);">📥 <strong style="color:var(--text)">Novos contatos</strong> — triagem automática</div>
-            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-size:14px;color:var(--text-2);">💬 <strong style="color:var(--text)">Em atendimento</strong> — conversas ativas</div>
-            <div style="background:var(--bg-card);border:1px solid var(--orange-border);border-radius:8px;padding:14px 16px;font-size:14px;color:var(--text-2);">⏳ <strong style="color:var(--text)">Aguardando</strong> — follow-up pendente</div>
-            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-size:14px;color:var(--text-2);">✅ <strong style="color:var(--text)">Concluído</strong> — histórico completo</div>
+            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-size:14px;color:var(--text-2);">📥 <strong style="color:var(--text)">Novos contatos:</strong> triagem automática</div>
+            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-size:14px;color:var(--text-2);">💬 <strong style="color:var(--text)">Em atendimento:</strong> conversas ativas</div>
+            <div style="background:var(--bg-card);border:1px solid var(--orange-border);border-radius:8px;padding:14px 16px;font-size:14px;color:var(--text-2);">⏳ <strong style="color:var(--text)">Aguardando:</strong> follow-up pendente</div>
+            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-size:14px;color:var(--text-2);">✅ <strong style="color:var(--text)">Concluído:</strong> histórico completo</div>
           </div>
           <div class="chip-row">
             <span class="chip">Multi-agente</span><span class="chip">Hierarquia</span>
@@ -203,8 +277,110 @@
         <a href="https://wa.me/5571993866628?text=Olá%2C%20quero%20automatizar%20processos%20no%20meu%20negócio" class="btn btn-primary">Solicitar Orçamento →</a>
       </div>
       <div class="fi d2 srv-visual">
+        <div class="device-frame">
+          <div class="device-header">
+            <div class="device-dot red"></div>
+            <div class="device-dot yellow"></div>
+            <div class="device-dot green"></div>
+          </div>
+          <div class="device-content">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" style="width:100%;height:auto;display:block" aria-label="Diagrama de automação de processos" role="img">
+              <defs>
+                <pattern id="fb2s-dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="14" cy="14" r="0.7" fill="rgba(255,255,255,0.055)"/></pattern>
+                <filter id="fb2s-glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                <filter id="fb2s-glsm" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+              <rect width="900" height="600" fill="#0d0d0d"/>
+              <rect width="900" height="600" fill="url(#fb2s-dots)"/>
+              <circle cx="366" cy="264" r="130" fill="rgba(232,93,4,0.04)"/>
+              <!-- STATUS BAR -->
+              <rect x="16" y="16" width="868" height="34" rx="7" fill="#161616" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+              <circle cx="36" cy="33" r="5" fill="#27c93f"/>
+              <circle cx="36" cy="33" r="5" fill="rgba(39,201,62,0.0)"><animate attributeName="r" values="5;13;5" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.4;0;0.4" dur="2s" repeatCount="indefinite"/></circle>
+              <text x="50" y="37" font-family="system-ui,sans-serif" font-size="11" fill="rgba(255,255,255,0.5)" letter-spacing="0.05em">AUTOMAÇÃO ATIVA</text>
+              <text x="164" y="37" font-family="system-ui,sans-serif" font-size="11" fill="rgba(255,255,255,0.2)"> · Lead recebido → 4 sistemas atualizados em 0.3s</text>
+              <rect x="736" y="23" width="136" height="20" rx="4" fill="rgba(232,93,4,0.1)" stroke="rgba(232,93,4,0.22)" stroke-width="0.8"/>
+              <text x="804" y="37" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#e85d04" font-weight="600" letter-spacing="0.04em">47 leads hoje</text>
+              <!-- TRIGGER -->
+              <rect x="16" y="230" width="188" height="68" rx="10" fill="#161616" stroke="rgba(232,93,4,0.45)" stroke-width="1.2"/>
+              <rect x="16" y="230" width="4" height="68" rx="2" fill="#e85d04"/>
+              <circle cx="14" cy="264" r="6" fill="#e85d04" filter="url(#fb2s-glow)"><animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/></circle>
+              <rect x="26" y="241" width="40" height="40" rx="9" fill="rgba(232,93,4,0.12)"/>
+              <rect x="33" y="248" width="26" height="26" rx="3.5" fill="none" stroke="#e85d04" stroke-width="1.5"/>
+              <line x1="37" y1="254" x2="55" y2="254" stroke="#e85d04" stroke-width="1.2" stroke-linecap="round"/>
+              <line x1="37" y1="260" x2="55" y2="260" stroke="#e85d04" stroke-width="1.2" stroke-linecap="round" opacity="0.55"/>
+              <line x1="37" y1="266" x2="48" y2="266" stroke="#e85d04" stroke-width="1.2" stroke-linecap="round" opacity="0.3"/>
+              <text x="74" y="248" font-family="system-ui,sans-serif" font-size="9" fill="rgba(255,255,255,0.3)" letter-spacing="0.1em">GATILHO</text>
+              <text x="74" y="265" font-family="system-ui,sans-serif" font-size="13" fill="#ffffff" font-weight="700">Lead chega</text>
+              <text x="74" y="283" font-family="system-ui,sans-serif" font-size="11" fill="rgba(255,255,255,0.3)">Form / WhatsApp</text>
+              <circle cx="204" cy="264" r="5" fill="#e85d04" filter="url(#fb2s-glsm)"/>
+              <!-- CONN trigger → hub -->
+              <path d="M209,264 L284,264" stroke="rgba(232,93,4,0.45)" stroke-width="2" fill="none"/>
+              <path d="M278,259 L287,264 L278,269" stroke="#e85d04" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle r="3.5" fill="#e85d04"><animateMotion path="M209,264 L287,264" dur="1.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="1.2s" repeatCount="indefinite"/></circle>
+              <!-- HUB -->
+              <rect x="292" y="208" width="148" height="112" rx="12" fill="#181818" stroke="rgba(232,93,4,0.35)" stroke-width="1.5"/>
+              <rect x="292" y="208" width="148" height="112" rx="12" fill="rgba(232,93,4,0.035)"/>
+              <rect x="292" y="208" width="148" height="4" rx="2" fill="#e85d04" opacity="0.65"/>
+              <path d="M366,226 L356,252 L364,252 L358,272 L376,244 L366,244 Z" fill="#e85d04" opacity="0.85" filter="url(#fb2s-glsm)"/>
+              <text x="366" y="287" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="rgba(255,255,255,0.28)" letter-spacing="0.1em">MOTOR</text>
+              <text x="366" y="304" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#ffffff" font-weight="700">Automação</text>
+              <text x="366" y="318" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="rgba(232,93,4,0.65)">● processando</text>
+              <circle cx="440" cy="264" r="5" fill="rgba(232,93,4,0.4)"/>
+              <!-- FAN-OUT CONNECTIONS -->
+              <path d="M445,264 C485,264 500,171 540,171" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" fill="none"/>
+              <path d="M534,166 L543,171 L534,176" stroke="rgba(255,255,255,0.15)" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M445,264 C485,264 500,233 540,233" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" fill="none"/>
+              <path d="M534,228 L543,233 L534,238" stroke="rgba(255,255,255,0.15)" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M445,264 C485,264 500,295 540,295" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" fill="none"/>
+              <path d="M534,290 L543,295 L534,300" stroke="rgba(255,255,255,0.15)" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M445,264 C485,264 500,357 540,357" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" fill="none"/>
+              <path d="M534,352 L543,357 L534,362" stroke="rgba(255,255,255,0.15)" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- OUTPUT 1 — CRM -->
+              <rect x="548" y="146" width="196" height="50" rx="9" fill="#161616" stroke="rgba(14,165,233,0.25)" stroke-width="1"/>
+              <rect x="548" y="146" width="3" height="50" rx="1.5" fill="#0ea5e9"/>
+              <text x="560" y="165" font-family="system-ui,sans-serif" font-size="9" fill="rgba(255,255,255,0.3)" letter-spacing="0.08em">BANCO DE DADOS</text>
+              <text x="560" y="184" font-family="system-ui,sans-serif" font-size="12" fill="#ffffff" font-weight="600">CRM atualizado</text>
+              <circle cx="728" cy="171" r="9" fill="rgba(14,165,233,0.1)" stroke="rgba(14,165,233,0.3)" stroke-width="1"/>
+              <polyline points="723,171 727,175 733,166" stroke="#0ea5e9" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- OUTPUT 2 — Planilha -->
+              <rect x="548" y="208" width="196" height="50" rx="9" fill="#161616" stroke="rgba(34,197,94,0.25)" stroke-width="1"/>
+              <rect x="548" y="208" width="3" height="50" rx="1.5" fill="#22c55e"/>
+              <text x="560" y="227" font-family="system-ui,sans-serif" font-size="9" fill="rgba(255,255,255,0.3)" letter-spacing="0.08em">PLANILHA</text>
+              <text x="560" y="246" font-family="system-ui,sans-serif" font-size="12" fill="#ffffff" font-weight="600">Planilha atualizada</text>
+              <circle cx="728" cy="233" r="9" fill="rgba(34,197,94,0.1)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
+              <polyline points="723,233 727,237 733,228" stroke="#22c55e" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- OUTPUT 3 — Gerente -->
+              <rect x="548" y="270" width="196" height="50" rx="9" fill="#161616" stroke="rgba(168,85,247,0.25)" stroke-width="1"/>
+              <rect x="548" y="270" width="3" height="50" rx="1.5" fill="#a855f7"/>
+              <text x="560" y="289" font-family="system-ui,sans-serif" font-size="9" fill="rgba(255,255,255,0.3)" letter-spacing="0.08em">NOTIFICAÇÃO</text>
+              <text x="560" y="308" font-family="system-ui,sans-serif" font-size="12" fill="#ffffff" font-weight="600">Gerente notificado</text>
+              <circle cx="728" cy="295" r="9" fill="rgba(168,85,247,0.1)" stroke="rgba(168,85,247,0.3)" stroke-width="1"/>
+              <polyline points="723,295 727,299 733,290" stroke="#a855f7" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- OUTPUT 4 — Proposta -->
+              <rect x="548" y="332" width="196" height="50" rx="9" fill="#161616" stroke="rgba(232,93,4,0.25)" stroke-width="1"/>
+              <rect x="548" y="332" width="3" height="50" rx="1.5" fill="#e85d04"/>
+              <text x="560" y="351" font-family="system-ui,sans-serif" font-size="9" fill="rgba(255,255,255,0.3)" letter-spacing="0.08em">E-MAIL / WHATSAPP</text>
+              <text x="560" y="370" font-family="system-ui,sans-serif" font-size="12" fill="#ffffff" font-weight="600">Proposta enviada</text>
+              <circle cx="728" cy="357" r="9" fill="rgba(232,93,4,0.1)" stroke="rgba(232,93,4,0.3)" stroke-width="1"/>
+              <polyline points="723,357 727,361 733,352" stroke="#e85d04" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- BOTTOM STATS -->
+              <rect x="16" y="430" width="280" height="56" rx="8" fill="#131313" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+              <text x="30" y="450" font-family="system-ui,sans-serif" font-size="9" fill="rgba(255,255,255,0.28)" letter-spacing="0.1em">ÚLTIMO LEAD</text>
+              <circle cx="30" cy="472" r="3.5" fill="#27c93f"/>
+              <text x="40" y="476" font-family="system-ui,sans-serif" font-size="11" fill="rgba(255,255,255,0.38)">Carlos M. → 4 ações em 0.3s · 14:47</text>
+              <rect x="308" y="430" width="576" height="56" rx="8" fill="#131313" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+              <text x="322" y="450" font-family="system-ui,sans-serif" font-size="9" fill="rgba(255,255,255,0.28)" letter-spacing="0.1em">ANTES vs. DEPOIS</text>
+              <text x="322" y="472" font-family="system-ui,sans-serif" font-size="11" fill="rgba(255,255,255,0.18)">Manual: ~45 min por lead</text>
+              <text x="490" y="472" font-family="system-ui,sans-serif" font-size="11" fill="rgba(232,93,4,0.7)" font-weight="600">Automatizado: 0.3s</text>
+              <!-- FOOTER -->
+              <rect x="16" y="504" width="868" height="34" rx="7" fill="#111" stroke="rgba(232,93,4,0.08)" stroke-width="1"/>
+              <text x="450" y="526" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="rgba(255,255,255,0.18)" letter-spacing="0.1em">UM LEAD ENTRA · 4 SISTEMAS ATUALIZADOS SIMULTANEAMENTE · ZERO CÓPIA MANUAL</text>
+            </svg>
+          </div>
+        </div>
         <div class="srv-card-vis">
-          <div style="font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:500;">Exemplos Reais</div>
+          <div style="font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:500;">Exemplo de Fluxo</div>
           <div style="display:flex;flex-direction:column;gap:12px;">
             <div style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--text-2);"><span style="color:var(--orange);font-size:18px;flex-shrink:0;margin-top:-2px">→</span><span><strong style="color:var(--text)">Cliente preenche form</strong> → contrato gerado automaticamente e enviado por e-mail</span></div>
             <div style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--text-2);"><span style="color:var(--orange);font-size:18px;flex-shrink:0;margin-top:-2px">→</span><span><strong style="color:var(--text)">Pagamento confirmado</strong> → pasta criada, acesso liberado, boas-vindas enviadas</span></div>
@@ -229,7 +405,7 @@
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
         <h2 class="srv-title">Desenvolvimento de Aplicativos</h2>
-        <p class="srv-desc">Criamos sistemas e aplicativos web e mobile do zero, adaptados exatamente à sua necessidade. Seja um sistema de gestão interno, uma plataforma para seus clientes ou um produto digital novo — desenvolvemos com qualidade e atenção ao detalhe.</p>
+        <p class="srv-desc">Criamos sistemas e aplicativos web e mobile do zero, adaptados exatamente à sua necessidade. Seja um sistema de gestão interno, uma plataforma para seus clientes ou um produto digital novo. Desenvolvemos com qualidade e atenção ao detalhe.</p>
         <ul class="feat-list">
           <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Sistemas de gestão personalizados (ERP, CRM, controle interno)</li>
           <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Plataformas SaaS e produtos digitais</li>
@@ -245,6 +421,16 @@
         <a href="https://wa.me/5571993866628?text=Olá%2C%20preciso%20desenvolver%20um%20aplicativo" class="btn btn-primary">Solicitar Orçamento →</a>
       </div>
       <div class="fi d2 srv-visual">
+        <div class="device-frame">
+          <div class="device-header">
+            <div class="device-dot red"></div>
+            <div class="device-dot yellow"></div>
+            <div class="device-dot green"></div>
+          </div>
+          <div class="device-content">
+            <img src="assets/images/app_dashboard_mockup.png" alt="Mockup de dashboard de aplicativo sob medida" width="800" height="600" loading="lazy" decoding="async">
+          </div>
+        </div>
         <div class="srv-card-vis">
           <div style="font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:500;">Processo de Desenvolvimento</div>
           <div style="display:flex;flex-direction:column;gap:0;">
@@ -271,14 +457,14 @@
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         </div>
         <h2 class="srv-title">Landing Pages</h2>
-        <p class="srv-desc">Criamos páginas de alta conversão, modernas e responsivas — alinhadas à identidade visual do seu negócio. Focamos na experiência do usuário e em transformar visitantes em clientes. A página que você está visitando agora é um exemplo do nosso trabalho.</p>
+        <p class="srv-desc">Criamos páginas de alta conversão, modernas e responsivas, alinhadas à identidade visual do seu negócio. Focamos na experiência do usuário e em transformar visitantes em clientes. A página que você está visitando agora é um exemplo do nosso trabalho.</p>
         <ul class="feat-list">
           <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Design moderno e personalizado à sua marca</li>
-          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>100% responsivo — perfeito no celular e no desktop</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>100% responsivo, perfeito no celular e no desktop</li>
           <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Animações e micro-interações para engajar visitantes</li>
           <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Formulários integrados com WhatsApp ou CRM</li>
           <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Otimização para SEO e velocidade de carregamento</li>
-          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Entrega rápida — geralmente em 3 a 7 dias úteis</li>
+          <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Entrega rápida, geralmente em 3 a 7 dias úteis</li>
         </ul>
         <div class="for-whom">
           <div class="for-whom-lbl">Ideal para</div>
@@ -287,6 +473,16 @@
         <a href="https://wa.me/5571993866628?text=Olá%2C%20preciso%20de%20uma%20landing%20page" class="btn btn-primary">Solicitar Orçamento →</a>
       </div>
       <div class="fi d2 srv-visual">
+        <div class="device-frame">
+          <div class="device-header">
+            <div class="device-dot red"></div>
+            <div class="device-dot yellow"></div>
+            <div class="device-dot green"></div>
+          </div>
+          <div class="device-content">
+            <img src="assets/images/landing_page_mockup.png" alt="Mockup de landing page de alta conversão" width="800" height="600" loading="lazy" decoding="async">
+          </div>
+        </div>
         <div class="srv-card-vis">
           <div style="font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:500;">O Que Entregamos</div>
           <div class="metric-grid">
@@ -317,7 +513,7 @@
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
         </div>
         <h2 class="srv-title">E-commerce</h2>
-        <p class="srv-desc">Criamos lojas virtuais completas, integradas com os principais meios de pagamento e logística do mercado. Do catálogo de produtos ao checkout — entregamos uma loja pronta para vender, com design alinhado à sua marca.</p>
+        <p class="srv-desc">Criamos lojas virtuais completas, integradas com os principais meios de pagamento e logística do mercado. Do catálogo de produtos ao checkout, entregamos uma loja pronta para vender, com design alinhado à sua marca.</p>
         <ul class="feat-list">
           <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Catálogo de produtos com fotos, variantes e estoque</li>
           <li><div class="feat-dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>Integração com Mercado Pago, Stripe e outros gateways</li>
@@ -332,7 +528,17 @@
         </div>
         <a href="https://wa.me/5571993866628?text=Olá%2C%20tenho%20interesse%20em%20E-commerce" class="btn btn-primary">Entrar na Lista de Espera →</a>
       </div>
-      <div class="fi d2 srv-visual" style="opacity:.8">
+      <div class="fi d2 srv-visual" style="opacity: 1;">
+        <div class="device-frame">
+          <div class="device-header">
+            <div class="device-dot red"></div>
+            <div class="device-dot yellow"></div>
+            <div class="device-dot green"></div>
+          </div>
+          <div class="device-content">
+            <img src="assets/images/ecommerce_mockup.png" alt="Mockup de loja virtual e-commerce" width="800" height="600" loading="lazy" decoding="async">
+          </div>
+        </div>
         <div class="srv-card-vis">
           <div style="font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;font-weight:500;">Tecnologias Previstas</div>
           <div class="chip-row" style="margin-top:0">
@@ -362,32 +568,28 @@
   </div>
 </div>
 
+</main>
+
 <!-- ── FOOTER ── -->
 <footer class="footer">
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="logo"><img src="assets/logos/logo-dark.png" alt="Neural Forge" height="30"></a>
+        <a href="index.html" class="logo"><img src="assets/logos/logo-dark.png" alt="Neural Forge" width="133" height="30" loading="lazy" decoding="async"></a>
         <p>Soluções Forjadas com Inteligência.<br>Transformamos problemas em software.</p>
       </div>
       <div class="footer-col"><h4>Empresa</h4><ul><li><a href="index.html#sobre">Sobre</a></li><li><a href="index.html#diferenciais">Diferenciais</a></li><li><a href="index.html#contato">Contato</a></li></ul></div>
       <div class="footer-col"><h4>Serviços</h4><ul><li><a href="#ia">Atendimento com IA</a></li><li><a href="#kanban">Kanban</a></li><li><a href="#automacao">Automação</a></li><li><a href="#apps">Aplicativos</a></li></ul></div>
-      <div class="footer-col"><h4>Mais</h4><ul><li><a href="precos.html">Preços</a></li><li><a href="https://wa.me/5571993866628">WhatsApp</a></li><li><a href="mailto:contato@neuralforgesolutions.com.br">E-mail</a></li></ul></div>
+      <div class="footer-col"><h4>Mais</h4><ul><li><a href="precos.html">Preços</a></li><li><a href="https://wa.me/5571993866628?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20quero%20um%20diagn%C3%B3stico%20gratuito%20do%20meu%20neg%C3%B3cio.">WhatsApp</a></li><li><a href="mailto:contato@neuralforgesolutions.com.br">E-mail</a></li><li><a href="politica-privacidade.html">Política de Privacidade</a></li></ul></div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Neural Forge. Todos os direitos reservados.</p>
+      <p>© 2025 Neural Forge Solutions · CNPJ 63.766.286/0001-30 · Todos os direitos reservados.</p>
       <p>neuralforgesolutions.com.br</p>
     </div>
   </div>
 </footer>
 
-<script>
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
-  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
-  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
-  const io = new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('in')), {threshold:0.07});
-  document.querySelectorAll('.fi').forEach(el => io.observe(el));
-</script>
+<script src="assets/js/common.js" defer></script>
+<script src="assets/js/cookie-banner.js" defer></script>
 </body>
 </html>
