@@ -157,7 +157,7 @@
         <li><a href="index.html#sobre">Sobre</a></li>
         <li><a href="index.html#solucoes">Soluções</a></li>
         <li><a href="servicos.html">Serviços</a></li>
-        <li><a href="precos.html">Preços</a></li>
+        <li><a href="precos.html">Investimento</a></li>
         <li><a href="index.html#contato" class="nav-cta">Fale Conosco</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -2465,7 +2465,6 @@
       <h2>Pronto pra parar de perder cliente por demora?<br><em>O diagnóstico é gratuito.</em></h2>
       <div class="btns">
         <a href="https://wa.me/5571993866628?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20quero%20um%20diagn%C3%B3stico%20gratuito%20do%20meu%20neg%C3%B3cio." class="btn btn-white" style="font-size:16px;padding:14px 28px;" data-cta="ctaband-diagnostico">Diagnóstico Gratuito →</a>
-        <a href="precos.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;font-size:16px;padding:14px 28px;border:1px solid rgba(255,255,255,.25);">Ver Preços</a>
       </div>
     </div>
   </div>
@@ -2596,7 +2595,7 @@
       </div>
       <div class="footer-col"><h4>Empresa</h4><ul><li><a href="#sobre">Sobre</a></li><li><a href="#diferenciais">Diferenciais</a></li><li><a href="#contato">Contato</a></li></ul></div>
       <div class="footer-col"><h4>Serviços</h4><ul><li><a href="servicos.html">Ver todos</a></li><li><a href="servicos.html#ia">Atendimento com IA</a></li><li><a href="servicos.html#automacao">Automação</a></li><li><a href="servicos.html#apps">Aplicativos</a></li></ul></div>
-      <div class="footer-col"><h4>Mais</h4><ul><li><a href="precos.html">Preços</a></li><li><a href="https://wa.me/5571993866628?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20quero%20um%20diagn%C3%B3stico%20gratuito%20do%20meu%20neg%C3%B3cio.">WhatsApp</a></li><li><a href="mailto:contato@neuralforgesolutions.com.br">E-mail</a></li><li><a href="politica-privacidade.html">Política de Privacidade</a></li></ul></div>
+      <div class="footer-col"><h4>Mais</h4><ul><li><a href="precos.html">Investimento</a></li><li><a href="https://wa.me/5571993866628?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20quero%20um%20diagn%C3%B3stico%20gratuito%20do%20meu%20neg%C3%B3cio.">WhatsApp</a></li><li><a href="mailto:contato@neuralforgesolutions.com.br">E-mail</a></li><li><a href="politica-privacidade.html">Política de Privacidade</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <p>© 2025 Neural Forge Solutions · CNPJ 63.766.286/0001-30 · Todos os direitos reservados.</p>
@@ -2691,11 +2690,8 @@
         label.textContent = 'Mensagem enviada! ✓';
 
         setTimeout(() => {
-          btn.classList.remove('success');
-          label.textContent = 'Enviar Mensagem';
-          form.reset();
-          document.querySelectorAll('.c-form input, .c-form textarea').forEach(el => el.style.borderColor = '');
-        }, 4000);
+          window.location.href = 'obrigado.html';
+        }, 800);
       } catch (err) {
         console.error('Erro ao enviar:', err);
         btn.classList.remove('loading');
