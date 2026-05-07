@@ -236,7 +236,7 @@
       <div class="about-text fi">
         <div class="sec-label">Quem Somos</div>
         <h2 class="sec-title">Nascemos da obsessão<br>de resolver problemas</h2>
-        <p>A Neural Forge surgiu de uma crença simples: <strong>tecnologia deve libertar pessoas de tarefas mecânicas</strong>. Sempre odiamos trabalho manual repetitivo, e nos apaixonamos pela programação exatamente por isso.</p>
+        <p>A Neural Forge surgiu de uma crença simples: <strong>tecnologia deve libertar pessoas de tarefas mecânicas</strong>. Sempre enxergamos o trabalho manual repetitivo como um problema a resolver, e nos apaixonamos pela programação exatamente por isso.</p>
         <p>Nossa missão é ouvir a dor de cada cliente e propor a melhor solução de software. <strong>Não vendemos produtos de prateleira</strong>: construímos a solução certa para o problema certo, com atenção total e qualidade de entrega.</p>
         <div class="about-quote">
           " Tecnologia deve libertar pessoas de tarefas mecânicas. "
@@ -2691,11 +2691,8 @@
         label.textContent = 'Mensagem enviada! ✓';
 
         setTimeout(() => {
-          btn.classList.remove('success');
-          label.textContent = 'Enviar Mensagem';
-          form.reset();
-          document.querySelectorAll('.c-form input, .c-form textarea').forEach(el => el.style.borderColor = '');
-        }, 4000);
+          window.location.href = 'obrigado.html';
+        }, 800);
       } catch (err) {
         console.error('Erro ao enviar:', err);
         btn.classList.remove('loading');
